@@ -1,6 +1,6 @@
 package com.ead.course.services.impl;
 
-import com.ead.course.models.CourseModel;;
+import com.ead.course.models.CourseModel;
 import com.ead.course.models.LessonModel;
 import com.ead.course.models.ModuleModel;
 import com.ead.course.repositories.LessonRepository;
@@ -35,10 +35,10 @@ public class CourseServiceImpl implements CourseService {
   @Override
   public void delete(CourseModel courseModel) {
     List<ModuleModel> moduleModelList = moduleRepository.findAllModulesIntoCourse(courseModel.getCourseId());
-    if(!moduleModelList.isEmpty()) {
-      for(ModuleModel module : moduleModelList) {
+    if (!moduleModelList.isEmpty()) {
+      for (ModuleModel module : moduleModelList) {
         List<LessonModel> lessonsModelList = lessonRepository.findAllLessonsIntoModule(module.getModuleId());
-        if(!lessonsModelList.isEmpty()){
+        if (!lessonsModelList.isEmpty()) {
           lessonRepository.deleteAll(lessonsModelList);
         }
       }
