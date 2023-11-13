@@ -15,8 +15,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -56,5 +54,9 @@ public class CourseModel implements Serializable {
   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
   @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
   private Set<CourseUserModel> coursesUsers;
+
+  public CourseUserModel convertToCourseUserModel(UUID usedID) {
+    return new CourseUserModel(null, this, usedID);
+  }
 
 }
