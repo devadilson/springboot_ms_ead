@@ -1,4 +1,4 @@
-# Spring Boot Projeect Microservices EAD
+# Spring Boot Project Microservices EAD
 Restful API project in Spring Boot 3 and Java 17 of an EAD system using microservices
 
 #
