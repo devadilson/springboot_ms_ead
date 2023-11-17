@@ -7,7 +7,7 @@ Service Registry
 #
 API Gateway
 #
-AuthUSer Service
+AuthUser Service
 #
 Course Service
 #
