@@ -1,6 +1,14 @@
 # Spring Boot Project Microservices EAD
 Restful API project in Spring Boot 3 and Java 17 of an EAD system using microservices
 
+### Starting Microservices
+# Service Registry
+# API Gateway
+# AuthUSer Service
+# Course Service
+## Following the order described above, navigate to the directory of each spring project and run the command below.
+# mvn spring-boot:run -Dspring-boot.run.arguments=--logging.level.com.ead=TRACE
+
 #
 ### EAD Application Architecture
 ![EAD Architecture](https://github.com/devadilson/springboot_ms_ead/blob/main/ead_diagram/EAD-Arquitetura-Microservices-EAD-Architecture.drawio.png?raw=true)
