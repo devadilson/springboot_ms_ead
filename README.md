@@ -3,15 +3,15 @@ Restful API project in Spring Boot 3 and Java 17 of an EAD system using microser
 
 ### Starting Microservices
 #
-Service Registry
+1 - Service Registry
 #
-API Gateway
+2 - API Gateway
 #
-AuthUser Service
+3 - AuthUser Service
 #
-Course Service
+4 - Course Service
 #
-Notification Service
+5 - Notification Service
 #
 ## Following the order described above, navigate to the directory of each spring project and run the command below.
 mvn spring-boot:run -Dspring-boot.run.arguments=--logging.level.com.ead=TRACE
