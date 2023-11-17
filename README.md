@@ -11,6 +11,8 @@ AuthUser Service
 #
 Course Service
 #
+Notification Service
+#
 ## Following the order described above, navigate to the directory of each spring project and run the command below.
 mvn spring-boot:run -Dspring-boot.run.arguments=--logging.level.com.ead=TRACE
 
