@@ -40,7 +40,8 @@ public class AuthUserClient {
         log.debug("Request URL: {}", url);
         log.info("Request URL: {}", url);
         try {
-            ParameterizedTypeReference<ResponsePageDto<UserDto>> responseType = new ParameterizedTypeReference<ResponsePageDto<UserDto>>() {};
+            ParameterizedTypeReference<ResponsePageDto<UserDto>> responseType = new ParameterizedTypeReference<ResponsePageDto<UserDto>>() {
+            };
             result = restTemplate.exchange(url, HttpMethod.GET, null, responseType);
             searchResult = result.getBody().getContent();
             log.debug("Response Number of Elements:: {}", searchResult.size());
@@ -51,8 +52,8 @@ public class AuthUserClient {
         return new PageImpl<>(searchResult);
     }
 
-    public ResponseEntity<UserDto> getOneUserById(UUID userId){
-        String url = REQUEST_URL_AUTHUSER + "/users/"+userId;
+    public ResponseEntity<UserDto> getOneUserById(UUID userId) {
+        String url = REQUEST_URL_AUTHUSER + "/users/" + userId;
         return restTemplate.exchange(url, HttpMethod.GET, null, UserDto.class);
     }
 
@@ -62,5 +63,10 @@ public class AuthUserClient {
         courseUserDto.setUserId(userId);
         courseUserDto.setCourseId(courseId);
         restTemplate.postForObject(url, courseUserDto, String.class);
+    }
+
+    public void deleteCourseInAuthUser(UUID courseId) {
+        String url = REQUEST_URL_AUTHUSER + "/users/courses/" + courseId;
+        restTemplate.exchange(url, HttpMethod.DELETE, null, String.class);
     }
 }
