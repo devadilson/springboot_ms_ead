@@ -1,8 +1,6 @@
 package com.ead.course.specifications;
 
-import com.ead.course.models.CourseUserModel;
 import jakarta.persistence.criteria.Expression;
-import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -51,13 +49,4 @@ public class SpecificationTemplate {
             return cb.and(cb.equal(module.get("moduleId"), moduleId), cb.isMember(lesson, moduleLessons));
         };
     }
-
-    public static Specification<CourseModel> courseUserId(final UUID userId) {
-        return (root, query, cb) -> {
-            query.distinct(true);
-            Join<CourseModel, CourseUserModel> courseProd = root.join("coursesUsers");
-            return cb.equal(courseProd.get("userId"), userId);
-        };
-    }
-
 }
