@@ -7,7 +7,7 @@ import com.ead.course.enums.UserStatus;
 import com.ead.course.models.CourseModel;
 import com.ead.course.models.CourseUserModel;
 import com.ead.course.services.CourseService;
-import com.ead.course.services.CourseUserService;
+import com.ead.course.services.UserService;
 import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ import java.util.UUID;
 @Log4j2
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-public class CourseUserController {
+public class UserController {
 
     @Autowired
     AuthUserClient authUserClient;
@@ -34,7 +34,7 @@ public class CourseUserController {
     CourseService courseService;
 
     @Autowired
-    CourseUserService courseUserService;
+    UserService courseUserService;
 
     @GetMapping("/courses/{courseId}/users")
     public ResponseEntity<Object> getAllUsersByCourse(
