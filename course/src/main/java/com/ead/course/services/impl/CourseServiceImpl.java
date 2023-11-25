@@ -5,6 +5,7 @@ import com.ead.course.models.LessonModel;
 import com.ead.course.models.ModuleModel;
 import com.ead.course.repositories.LessonRepository;
 import com.ead.course.repositories.ModuleRepository;
+import com.ead.course.repositories.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,20 +32,23 @@ public class CourseServiceImpl implements CourseService {
   @Autowired
   LessonRepository lessonRepository;
 
+  @Autowired
+  UserRepository userRepository;
+
   @Transactional
   @Override
   public void delete(CourseModel courseModel) {
     List<ModuleModel> moduleModelList = moduleRepository.findAllModulesIntoCourse(courseModel.getCourseId());
-    if (!moduleModelList.isEmpty()) {
-      for (ModuleModel module : moduleModelList) {
-        List<LessonModel> lessonsModelList = lessonRepository.findAllLessonsIntoModule(module.getModuleId());
-        if (!lessonsModelList.isEmpty()) {
-          lessonRepository.deleteAll(lessonsModelList);
+    if (!moduleModelList.isEmpty()){
+      for(ModuleModel module : moduleModelList){
+        List<LessonModel> lessonModelList = lessonRepository.findAllLessonsIntoModule(module.getModuleId());
+        if (!lessonModelList.isEmpty()){
+          lessonRepository.deleteAll(lessonModelList);
         }
       }
       moduleRepository.deleteAll(moduleModelList);
     }
-
+    courseRepository.deleteCourseUserByCourse(courseModel.getCourseId());
     courseRepository.delete(courseModel);
   }
 
@@ -61,5 +65,16 @@ public class CourseServiceImpl implements CourseService {
   @Override
   public Page<CourseModel> findAll(Specification<CourseModel> spec, Pageable pageable) {
     return courseRepository.findAll(spec, pageable);
+  }
+
+  @Override
+  public boolean existsByCourseAndUser(UUID courseId, UUID userId) {
+    return courseRepository.existsByCourseAndUser(courseId, userId);
+  }
+
+  @Transactional
+  @Override
+  public void saveSubscriptionUserInCourse(UUID courseId, UUID userId) {
+    courseRepository.saveCourseUser(courseId, userId);
   }
 }
