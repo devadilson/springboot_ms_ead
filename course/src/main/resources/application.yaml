@@ -12,7 +12,7 @@ spring:
     password: admin
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
       dialect: org.hibernate.dialect.PostgreSQLDialect
       jdbc:
         lob.non-contextual-creation: true
@@ -22,6 +22,9 @@ spring:
   output:
     ansi:
       enabled: Always
+  rabbitmq:
+    addresses: amqps://fgdpdxcn:75ozfLJKnyumRigXqPF1vjN-xuqCQdNU@gerbil.rmq.cloudamqp.com/fgdpdxcn
+
 logging:
    level:
      com.ead: TRACE
@@ -33,6 +36,12 @@ ead:
   api:
     url:
       authuser: 'http://ead-authuser-service/ead-authuser'
+  broker:
+    exchange:
+      userEventExchange: ead.userevent
+    queue:
+      userEventQueue:
+        name: ead.userevent.ms.course
 
 eureka:
   client:
