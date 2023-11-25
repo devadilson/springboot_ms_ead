@@ -22,6 +22,9 @@ spring:
   output:
     ansi:
       enabled: Always
+  rabbitmq:
+    addresses: amqps://fgdpdxcn:75ozfLJKnyumRigXqPF1vjN-xuqCQdNU@gerbil.rmq.cloudamqp.com/fgdpdxcn
+
 logging:
   level:
     com.ead.: TRACE
@@ -33,6 +36,9 @@ ead:
   api:
     url:
       course: 'http://ead-course-service/ead-course'
+  broker:
+    exchange:
+      userEvent: ead.userevent
 
 eureka:
   client:
