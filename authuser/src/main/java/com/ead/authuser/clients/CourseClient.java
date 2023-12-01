@@ -37,7 +37,7 @@ public class CourseClient {
     @Value("${ead.api.url.course}")
     String REQUEST_URL_COURSE;
 
-    //@Retry(name = "retryInstance", fallbackMethod = "retryfallback")
+    // @Retry(name = "retryInstance", fallbackMethod = "retryfallback")
     @CircuitBreaker(name = "circuitbrakerInstace", fallbackMethod = "circuitbreakerfallback")
     public Page<CourseDto> getAllCoursesByUser(UUID userId, Pageable pageable) {
         List<CourseDto> searchResult = null;
@@ -69,6 +69,5 @@ public class CourseClient {
         List<CourseDto> searchResult = new ArrayList<>();
         return new PageImpl<>(searchResult);
     }
-
 
 }
