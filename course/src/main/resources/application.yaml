@@ -23,7 +23,7 @@ spring:
     ansi:
       enabled: Always
   rabbitmq:
-    addresses: amqps://fgdpdxcn:75ozfLJKnyumRigXqPF1vjN-xuqCQdNU@gerbil.rmq.cloudamqp.com/fgdpdxcn
+    addresses: amqps://xxxx
 
 logging:
    level:
