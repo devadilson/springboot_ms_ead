@@ -23,7 +23,7 @@ spring:
     ansi:
       enabled: Always
   rabbitmq:
-    addresses: amqps://fgdpdxcn:75ozfLJKnyumRigXqPF1vjN-xuqCQdNU@gerbil.rmq.cloudamqp.com/fgdpdxcn
+    addresses: amqps://xxxx
 
 logging:
   level:
@@ -46,3 +46,19 @@ eureka:
       default-zone: 'http://localhost:8761/eureka'
   instance:
     hostname: localhost
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      circuitbrakerInstace:
+        slidingWindowSize: 30
+        permittedNumberOfCallsInHalfOpenState: 2
+        slidingWindowType: TIME_BASED
+        minimumNumberOfCalls: 2
+        waitDurationInOpenState: 30s
+        failureRateThreshold: 80
+  retry:
+    instances:
+      retryInstance:
+        maxAttempts: 3
+        waitDuration: 5s
