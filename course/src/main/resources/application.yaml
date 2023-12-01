@@ -1,51 +1,58 @@
-server:
-  port: 8082
-  servlet:
-    context-path: '/ead-course/'
+# server:
+#   port: 8082
+#   servlet:
+#     context-path: '/ead-course/'
 
 spring:
   application:
     name: ead-course-service
-  datasource:
-    url: jdbc:postgresql://localhost:5432/ead_course_v2
-    username: admin
-    password: admin
-  jpa:
-    hibernate:
-      ddl-auto: none
-      dialect: org.hibernate.dialect.PostgreSQLDialect
-      jdbc:
-        lob.non-contextual-creation: true
-    properties:
-      hibernate:
-        show_sql: true
-  output:
-    ansi:
-      enabled: Always
-  rabbitmq:
-    addresses: amqps://xxxx
+  config:
+    import: 'configserver:'
+  cloud:
+    config:
+      discovery:
+        serviceId: ead-config-server
 
-logging:
-   level:
-     com.ead: TRACE
-     root: INFO
-     org.springframework.web: DEBUG
-     org.hibernate: INFO
+  # datasource:
+  #   url: jdbc:postgresql://localhost:5432/ead_course_v2
+  #   username: admin
+  #   password: admin
+  # jpa:
+  #   hibernate:
+  #     ddl-auto: none
+  #     dialect: org.hibernate.dialect.PostgreSQLDialect
+  #     jdbc:
+  #       lob.non-contextual-creation: true
+  #   properties:
+  #     hibernate:
+  #       show_sql: true
+  # output:
+  #   ansi:
+  #     enabled: Always
+  # rabbitmq:
+  #   addresses: amqps://jdxywwwj:AK4ygMqsVn5gfEUjYuQYO4GQfkSbZgz_@gerbil.rmq.cloudamqp.com/jdxywwwj
 
-ead:
-  api:
-    url:
-      authuser: 'http://ead-authuser-service/ead-authuser'
-  broker:
-    exchange:
-      userEventExchange: ead.userevent
-    queue:
-      userEventQueue:
-        name: ead.userevent.ms.course
+# logging:
+#    level:
+#      com.ead: TRACE
+#      root: INFO
+#      org.springframework.web: DEBUG
+#      org.hibernate: INFO
 
-eureka:
-  client:
-    service-url:
-      default-zone: 'http://localhost:8761/eureka'
-  instance:
-    hostname: localhost
+# ead:
+#   api:
+#     url:
+#       authuser: 'http://ead-authuser-service/ead-authuser'
+#   broker:
+#     exchange:
+#       userEventExchange: ead.userevent
+#     queue:
+#       userEventQueue:
+#         name: ead.userevent.ms.course
+
+# eureka:
+#   client:
+#     service-url:
+#       default-zone: 'http://localhost:8761/eureka'
+#   instance:
+#     hostname: localhost
