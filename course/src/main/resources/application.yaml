@@ -30,7 +30,7 @@ spring:
     ansi:
       enabled: Always
   rabbitmq:
-    addresses: amqps://jdxywwwj:AK4ygMqsVn5gfEUjYuQYO4GQfkSbZgz_@gerbil.rmq.cloudamqp.com/jdxywwwj
+    addresses: amqps://kccfuaqw:33kfFoWyprGXTrPbyC_d6qqO1TCHZIvM@gerbil.rmq.cloudamqp.com/kccfuaqw
 
 logging:
   level:
