@@ -1,0 +1,16 @@
+package com.ead.authuser.repositories;
+
+import java.util.UUID;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.ead.authuser.models.RoleModel;
+import java.util.Optional;
+
+import com.ead.authuser.enums.RoleType;
+
+public interface RoleRepository extends JpaRepository<RoleModel, UUID> {
+
+  Optional<RoleModel> findByRoleName(RoleType name);
+
+}
