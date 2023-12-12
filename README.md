@@ -7,17 +7,13 @@ Restful API project in Spring Boot 3 and Java 17 of an EAD system using microser
 #
 2 - API Gateway
 #
-3 - AuthUser Service
+3 - Config Server
 #
-4 - Course Service
+4 - AuthUser Service
 #
-5 - Notification Service
+5 - Course Service
 #
-6 - Service Registry
-#
-7 - Congig Server
-#
-8 - API Gateway
+6 - Notification Service
 #
 
 ## Following the order described above, navigate to the directory of each spring project and run the command below.
