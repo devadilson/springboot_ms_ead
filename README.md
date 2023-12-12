@@ -1,6 +1,9 @@
 # Spring Boot Project Microservices EAD
 Restful API project in Spring Boot 3 and Java 17 of an EAD system using microservices
 
+#
+### NOTE: The Same Project with Broken Pattern and Authentication and Authorization with JWT Token, change for branch #MAINV2#
+
 ### Starting Microservices
 #
 1 - Service Registry
