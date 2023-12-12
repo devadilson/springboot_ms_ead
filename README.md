@@ -14,11 +14,16 @@ Restful API project in Spring Boot 3 and Java 17 of an EAD system using microser
 5 - Notification Service
 #
 ## Following the order described above, navigate to the directory of each spring project and run the command below.
-mvn spring-boot:run -Dspring-boot.run.arguments=--logging.level.com.ead=TRACE
+![EAD Architecture](https://github.com/devadilson/springboot_ms_ead/blob/mainv2/ead_diagram/Spring_Eureka_V2.png?raw=true)
 
 #
-### EAD Application Architecture
-![EAD Architecture](https://github.com/devadilson/springboot_ms_ead/blob/main/ead_diagram/EAD-Arquitetura-Microservices-EAD-Architecture.drawio.png?raw=true)
+
+### EAD Eureka Client and LoadBalance with API Gateway e Service Discovery Pattern in Microservices and Authentication and Authorization with JWT Token in MicroServices
+![EAD Architecture](https://github.com/devadilson/springboot_ms_ead/blob/mainv2/ead_diagram/Spring_Eureka_V2.png?raw=true)
+
+#
+### EAD Application Architecture - LoadBalance and Authentication and Authorization with JWT Token, Basic Authentication in Service Registry and Config Server
+![EAD Architecture](https://github.com/devadilson/springboot_ms_ead/blob/main/ead_diagram/EAD-Arquitetura-Microservices_V2.png?raw=true)
 
 #
 ### EAD Diagram Flux Subscription User in Courses
@@ -33,5 +38,5 @@ mvn spring-boot:run -Dspring-boot.run.arguments=--logging.level.com.ead=TRACE
 ![EAD Diagram Flux Delete User](https://github.com/devadilson/springboot_ms_ead/blob/main/ead_diagram/Flux-Delete-User.drawio.png?raw=true)
 
 #
-### EAD Eureka Client and LoadBalance with API Gateway e Service Discovery Pattern in Microservices
-![EAD Eureka Client and LoadBalance with API Gateway e Service Discovery Pattern in Microservices](https://github.com/devadilson/springboot_ms_ead/blob/main/ead_diagram/Eureka_Client_LoadBalance_MS.png?raw=true)
+### EAD Diagram Flux Delete User with State Tranfer Pattern
+![EAD Diagram Flux Delete User with State Tranfer Patterns](https://github.com/devadilson/springboot_ms_ead/blob/mainv2/ead_diagram/EAD-Arquitetura-Microservices_V2_Flux_Delete_User_State_Transfer.png?raw=true)
