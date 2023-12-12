@@ -14,6 +14,7 @@ Restful API project in Spring Boot 3 and Java 17 of an EAD system using microser
 5 - Notification Service
 #
 ## Following the order described above, navigate to the directory of each spring project and run the command below.
+mvn spring-boot:run -Dspring-boot.run.arguments=--logging.level.com.ead=TRACE
 
 #
 ### EAD Eureka Client
