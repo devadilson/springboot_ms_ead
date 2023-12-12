@@ -17,7 +17,7 @@ Restful API project in Spring Boot 3 and Java 17 of an EAD system using microser
 #
 7 - Congig Server
 #
-8 - Config Server, API Gateway and Service Registry
+8 - API Gateway
 #
 
 ## Following the order described above, navigate to the directory of each spring project and run the command below.
