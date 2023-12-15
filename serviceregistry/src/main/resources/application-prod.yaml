@@ -1,0 +1,17 @@
+server:
+  port: 8761 #${PORT}
+
+ead:
+  serviceRegistry:
+    username: serviceregistry #${EUREKA_USERNAME}
+    password: 'ead123sr' #${EUREKA_PASSWORD}
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: 'http://${ead.serviceRegistry.username}:${ead.serviceRegistry.password}@localhost:8761/eureka' #${EUREKA_URL}
+  #instance:
+    #hostname: ${APP_DOMAIN_NAME}
+    #non-secure-port: 80
