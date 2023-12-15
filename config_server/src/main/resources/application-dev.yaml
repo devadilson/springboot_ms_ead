@@ -1,9 +1,7 @@
 server:
   port: 8888
 
-spring: 
-  application: 
-    name: ead-config-server
+spring:
   cloud:
     config:
       server:
