@@ -6,8 +6,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/devadilson/ead-config-server-repo
-          default-label: main
+          uri: https://github.com/devadilson/ead-config-server-repo #${}}
+          default-label: main #${GIT_BRANCH}
+          username: devadilson
+          password: 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
 
 ead:
   configServer:
