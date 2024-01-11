@@ -1,13 +1,14 @@
 package com.ead.authuser.configs.security;
 
+import jakarta.servlet.DispatcherType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,6 +31,9 @@ public class WebSecurityConfig {
   @Autowired
   AuthenticationEntryPointImpl authenticationEntryPoint;
 
+  @Autowired
+  AccessDeniedHandlerImpl accessDeniedHandler;
+
   private static final String[] AUTH_WHITELIST = {
       "/auth/**",
   };
@@ -48,13 +52,21 @@ public class WebSecurityConfig {
   }
 
   @Bean
+  public DefaultMethodSecurityExpressionHandler expressionHandler() {
+    DefaultMethodSecurityExpressionHandler expressionHandler = new DefaultMethodSecurityExpressionHandler();
+    expressionHandler.setRoleHierarchy(roleHierarchy());
+    return expressionHandler;
+  }
+
+  @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http
-        .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
+        .exceptionHandling().accessDeniedHandler(accessDeniedHandler).authenticationEntryPoint(authenticationEntryPoint)
         .and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         .and()
-        .authorizeRequests()
+        .authorizeHttpRequests()
+        .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
         .requestMatchers(AUTH_WHITELIST).permitAll()
         .anyRequest().authenticated()
         .and()
