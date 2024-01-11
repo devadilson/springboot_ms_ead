@@ -1,5 +1,6 @@
 package com.ead.serviceregistry.configs;
 
+import jakarta.servlet.DispatcherType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +26,8 @@ public class WebSecurityConfig {
         http
                 .httpBasic()
                 .and()
-                .authorizeRequests()
+                .authorizeHttpRequests()
+                .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable()

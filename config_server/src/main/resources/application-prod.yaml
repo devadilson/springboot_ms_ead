@@ -29,3 +29,6 @@ eureka:
   instance:
     hostname: localhost #${APP_DOMAIN_NAME}
     #non-secure-port: 80
+
+encrypt:
+  key: SUN9Ea8uMa0vJyZmDU/lWILyL8Jj5KXmh5y0qLEy0YnjqNtUnrLvKiOeFyXpS3+C
